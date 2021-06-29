@@ -43,8 +43,23 @@ headers = list(set(headers)) + ["comment_location"] + ['first_name'] + ['last_na
 to_csv = []
 to_csv.append([header_title_dict.get(header, 'NOTITLE') for header in headers])
 
+safety_csv = []
+safety_csv.append(['first_name', 'last_name', 'zip', 'x', 'y'])
+
+def pull_density_points(pnt_list):
+    xy_coords = []
+    for pnt in pnt_list:
+        lwp_type = pnt.get('type', None)
+        if not lwp_type:
+            xy_coords.append((pnt['x'], pnt['y']))
+        else:
+            pass
+    return xy_coords
+
 for response in survey_responses:
-    comment_location = response['comment_location']
+    comment_location = response['comment_location'] # yields array
+    safety_coords = pull_density_points(comment_location)
+    print(safety_coords)
     survey_taker_id = response['survey_taker_id']
     stakeholder = [sh for sh in stakeholders if sh['pk'] == survey_taker_id][0]
     stakeholder_first_name = stakeholder['first_name']
@@ -55,15 +70,12 @@ for response in survey_responses:
     response_list[headers.index('first_name')] = stakeholder_first_name
     response_list[headers.index('last_name')] = stakeholder_last_name
     response_list[headers.index('zip_code')] = stakeholder_zip_code
+    for x, y in safety_coords:
+        safety_csv.append((stakeholder_first_name, stakeholder_last_name, stakeholder_zip_code, x, y))
     for question, answer in response['response_json'].items():
         response_list[headers.index(question)] = answer
     to_csv.append(response_list)
 
-def pull_density_points(pnt_list):
-    for pnt in pnt_list:
-        lwp_type = pnt_list.get('type', None)
-        if lwp_type:
-            pass
 
 # with open('sce_spatial.csv', mode='w', newline="", encoding='utf-8') as sce_spatial:
 #     sce_spatial_writer = csv.writer(sce_spatial, delimiter=';')
@@ -72,3 +84,7 @@ def pull_density_points(pnt_list):
 with open('sce_responses.csv', mode='w', newline="", encoding='utf-8') as sce_file:
     sce_writer = csv.writer(sce_file, delimiter=';')
     sce_writer.writerows(to_csv)
+
+with open('sce_safety.csv', mode='w', newline="", encoding='utf-8') as sce_safety_file:
+    sce_safety_writer = csv.writer(sce_safety_file, delimiter=',')
+    sce_safety_writer.writerows(safety_csv)
