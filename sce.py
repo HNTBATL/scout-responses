@@ -19,7 +19,9 @@ stakeholders = json.loads(stakeholders_json.text)
 survey_questions = [question for question in survey['survey_json']['pages'][0]['elements']]
 survey_responses = [r for r in survey_responses if r['survey'] == survey_id]
 
-print(len(survey_responses))
+# print(len(survey_responses))
+# print(survey_responses[0])
+print(stakeholders[0])
 
 def create_questions_dict(survey_questions):
     questions = {}
@@ -36,18 +38,36 @@ for response in survey_responses:
     for answer in response['response_json']:
         headers.append(answer)
 
-headers = list(set(headers)) + ["comment_location"] + ['stakeholder_id']
+headers = list(set(headers)) + ["comment_location"] + ['first_name'] + ['last_name'] + ['zip_code']
 
 to_csv = []
 to_csv.append([header_title_dict.get(header, 'NOTITLE') for header in headers])
 
 for response in survey_responses:
     comment_location = response['comment_location']
+    survey_taker_id = response['survey_taker_id']
+    stakeholder = [sh for sh in stakeholders if sh['pk'] == survey_taker_id][0]
+    stakeholder_first_name = stakeholder['first_name']
+    stakeholder_last_name = stakeholder['last_name']
+    stakeholder_zip_code = stakeholder['postal_code']
     response_list = [""] * len(headers) # create placeholders
     response_list[headers.index('comment_location')] = comment_location
+    response_list[headers.index('first_name')] = stakeholder_first_name
+    response_list[headers.index('last_name')] = stakeholder_last_name
+    response_list[headers.index('zip_code')] = stakeholder_zip_code
     for question, answer in response['response_json'].items():
         response_list[headers.index(question)] = answer
     to_csv.append(response_list)
+
+def pull_density_points(pnt_list):
+    for pnt in pnt_list:
+        lwp_type = pnt_list.get('type', None)
+        if lwp_type:
+            pass
+
+# with open('sce_spatial.csv', mode='w', newline="", encoding='utf-8') as sce_spatial:
+#     sce_spatial_writer = csv.writer(sce_spatial, delimiter=';')
+    # sce_spatial_writer.writerows(to_csv)
 
 with open('sce_responses.csv', mode='w', newline="", encoding='utf-8') as sce_file:
     sce_writer = csv.writer(sce_file, delimiter=';')
