@@ -19,9 +19,9 @@ stakeholders = json.loads(stakeholders_json.text)
 survey_questions = [question for question in survey['survey_json']['pages'][0]['elements']]
 survey_responses = [r for r in survey_responses if r['survey'] == survey_id]
 
-# print(len(survey_responses))
+print(len(survey_responses))
 # print(survey_responses[0])
-print(stakeholders[0])
+# print(stakeholders[0])
 
 def create_questions_dict(survey_questions):
     questions = {}
@@ -46,6 +46,9 @@ to_csv.append([header_title_dict.get(header, 'NOTITLE') for header in headers])
 safety_csv = []
 safety_csv.append(['first_name', 'last_name', 'zip', 'x', 'y'])
 
+type_csv = []
+type_csv.append(['first_name', 'last_name', 'zip', 'home_x', 'home_y', 'work_x', 'work_y', 'meet_x', 'meet_y', 'play_x', 'play_y'])
+
 def pull_density_points(pnt_list):
     xy_coords = []
     for pnt in pnt_list:
@@ -56,10 +59,21 @@ def pull_density_points(pnt_list):
             pass
     return xy_coords
 
+def pull_type_points(pnt_list):
+    xy_coords = {}
+    for pnt in pnt_list:
+        lwp_type = pnt.get('type', None)
+        if lwp_type:
+            xy_coords[lwp_type] = (pnt['x'], pnt['y'])
+        else:
+            pass
+    return xy_coords
+
 for response in survey_responses:
     comment_location = response['comment_location'] # yields array
     safety_coords = pull_density_points(comment_location)
-    print(safety_coords)
+    type_coords = pull_type_points(comment_location)
+    # print(type_coords)
     survey_taker_id = response['survey_taker_id']
     stakeholder = [sh for sh in stakeholders if sh['pk'] == survey_taker_id][0]
     stakeholder_first_name = stakeholder['first_name']
@@ -72,6 +86,11 @@ for response in survey_responses:
     response_list[headers.index('zip_code')] = stakeholder_zip_code
     for x, y in safety_coords:
         safety_csv.append((stakeholder_first_name, stakeholder_last_name, stakeholder_zip_code, x, y))
+    home_x, home_y = type_coords.get('home', (0, 0))
+    work_x, work_y = type_coords.get('work', (0, 0))
+    meet_x, meet_y = type_coords.get('meet', (0, 0))
+    play_x, play_y = type_coords.get('play', (0, 0))
+    type_csv.append((stakeholder_first_name, stakeholder_last_name, stakeholder_zip_code, home_x, home_y, work_x, work_y, meet_x, meet_y, play_x, play_y))
     for question, answer in response['response_json'].items():
         response_list[headers.index(question)] = answer
     to_csv.append(response_list)
@@ -88,3 +107,7 @@ with open('sce_responses.csv', mode='w', newline="", encoding='utf-8') as sce_fi
 with open('sce_safety.csv', mode='w', newline="", encoding='utf-8') as sce_safety_file:
     sce_safety_writer = csv.writer(sce_safety_file, delimiter=',')
     sce_safety_writer.writerows(safety_csv)
+
+with open('sce_type.csv', mode='w', newline="", encoding='utf-8') as sce_type_file:
+    sce_type_writer = csv.writer(sce_type_file, delimiter=',')
+    sce_type_writer.writerows(type_csv)
