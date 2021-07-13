@@ -7,7 +7,7 @@ f_name = "./campbellton_survey_responses.csv"
 #find a way to automate retrieval
 jwt = "JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo1LCJ1c2VybmFtZSI6ImJyYmF0dEBobnRiLmNvbSIsImV4cCI6MTYyODM0OTAzNCwiZW1haWwiOiJicmJhdHRAaG50Yi5jb20ifQ.W1G_zF6vy5kREVdjLQjRKL8y9yId2Ntd6f36VqQ_D2I"
 
-survey_id = 11
+survey_id = 10
 survey_json = requests.post(f"https://staging-api.scoutfeedback.com/api/surveyJSON/{survey_id}", headers={"authorization": jwt})
 survey_responses_json = requests.post("https://staging-api.scoutfeedback.com/api/responseJSON", headers={"authorization": jwt})
 stakeholders_json = requests.post("https://staging-api.scoutfeedback.com/api/stakeholders", headers={"authorization": jwt})
@@ -77,14 +77,20 @@ for response in survey_responses:
     to_csv.append(response_list)
 
 
-with open('sce_spatial.csv', mode='w', newline="", encoding='utf-8') as sce_spatial:
-    sce_spatial_writer = csv.writer(sce_spatial, delimiter=';')
-    sce_spatial_writer.writerows(to_csv)
+# with open('sce_spatial.csv', mode='w', newline="", encoding='utf-8') as sce_spatial:
+#     sce_spatial_writer = csv.writer(sce_spatial, delimiter=';')
+#     sce_spatial_writer.writerows(to_csv)
 
-with open('campbellton_station_responses2.csv', mode='w', newline="", encoding='utf-8') as sce_file:
+# survey_id = 11
+# with open('campbellton_station_responses_2.csv', mode='w', newline="", encoding='utf-8') as sce_file:
+#     sce_writer = csv.writer(sce_file, delimiter=';')
+#     sce_writer.writerows(to_csv)
+
+## survey_id = 10
+with open('campbellton_survey_responses_2.csv', mode='w', newline="", encoding='utf-8') as sce_file:
     sce_writer = csv.writer(sce_file, delimiter=';')
     sce_writer.writerows(to_csv)
 
-with open('sce_safety.csv', mode='w', newline="", encoding='utf-8') as sce_safety_file:
-    sce_safety_writer = csv.writer(sce_safety_file, delimiter=',')
-    sce_safety_writer.writerows(safety_csv)
+# with open('sce_safety.csv', mode='w', newline="", encoding='utf-8') as sce_safety_file:
+#     sce_safety_writer = csv.writer(sce_safety_file, delimiter=',')
+#     sce_safety_writer.writerows(safety_csv)
