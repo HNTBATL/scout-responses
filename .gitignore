@@ -3,3 +3,5 @@ env/
 *.xlsx
 *.csv
 *.json
+
+.history
