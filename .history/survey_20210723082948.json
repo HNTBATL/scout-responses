@@ -1,0 +1,686 @@
+{
+    "pages":[
+       {
+          "name":"page2",
+          "elements":[
+             {
+                "name":"Are you a user of any of the following transportation modes and services while using I-345?",
+                "type":"checkbox",
+                "title":"Are you a user of any of the following transportation modes and services while using I-345? ",
+                "choices":[
+                   {
+                      "text":"Private vehicle",
+                      "value":"Private vehicle"
+                   },
+                   {
+                      "text":"Carpool with others",
+                      "value":"Carpool with others"
+                   },
+                   {
+                      "text":"Ride Services (Uber, Lyft, taxi, etc.)",
+                      "value":"Ride Services (Uber, Lyft, taxi, etc.)"
+                   },
+                   {
+                      "text":"Public transit (rail/bus)",
+                      "value":"Public transit (rail/bus)"
+                   },
+                   {
+                      "text":"Bicycle",
+                      "value":"Bicycle"
+                   },
+                   {
+                      "text":"Commercial vehicle",
+                      "value":"Commercial vehicle"
+                   },
+                   {
+                      "text":"Pedestrian",
+                      "value":"Pedestrian"
+                   }
+                ],
+                "hasOther":true,
+                "description":"Select all that apply."
+             },
+             {
+                "name":"panel_CommuteOnI345",
+                "type":"panel",
+                "elements":[
+                   {
+                      "name":"What best describes your interest in I-345?",
+                      "type":"checkbox",
+                      "title":"What best describes your interest in I-345? \n",
+                      "choices":[
+                         {
+                            "text":"Reside near I-345",
+                            "value":"Reside near I-345"
+                         },
+                         {
+                            "text":"Commuter/traveler to downtown Dallas",
+                            "value":"Commuter/traveler to downtown Dallas"
+                         },
+                         {
+                            "text":"Commuter/traveler through downtown Dallas",
+                            "value":"Commuter/traveler through downtown Dallas"
+                         },
+                         {
+                            "text":"Business owner near I-345",
+                            "value":"Business owner near I-345"
+                         },
+                         {
+                            "text":"Property owner near I-345",
+                            "value":"Property owner near I-345"
+                         },
+                         {
+                            "text":"Potential business owner or property owner near I-345",
+                            "value":"Potential business owner or property owner near I-345"
+                         },
+                         {
+                            "text":"Walk/bike under I-345",
+                            "value":"Walk/bike under I-345"
+                         },
+                         {
+                            "text":"Event/recreational travel (ex. entertainment in Deep Ellum)",
+                            "value":"Event/recreational travel (ex. entertainment in Deep Ellum)"
+                         }
+                      ],
+                      "hasOther":true,
+                      "otherText":"Other, please list:",
+                      "description":"Select all that apply."
+                   },
+                   {
+                      "name":"How often do you use I-345?",
+                      "type":"radiogroup",
+                      "title":"How often do you use I-345?",
+                      "choices":[
+                         {
+                            "text":"Daily",
+                            "value":"Daily"
+                         },
+                         {
+                            "text":"Weekly",
+                            "value":"Weekly"
+                         },
+                         {
+                            "text":"Monthly",
+                            "value":"Monthly"
+                         },
+                         {
+                            "text":"A few times a year",
+                            "value":"A few times a year"
+                         },
+                         {
+                            "text":"Never",
+                            "value":"Never"
+                         }
+                      ]
+                   },
+                   {
+                      "name":"When do you use I-345?",
+                      "type":"checkbox",
+                      "title":"When do you use I-345? ",
+                      "choices":[
+                         {
+                            "text":"Morning rush hour (6 a.m. \u2013 9 a.m.)",
+                            "value":"Morning rush hour (6 a.m. \u2013 9 a.m.)"
+                         },
+                         {
+                            "text":"Midday (9 a.m. \u2013 3 p.m.)",
+                            "value":"Midday (9 a.m. \u2013 3 p.m.)"
+                         },
+                         {
+                            "text":"Afternoon rush hour (3 p.m. \u2013 6 p.m.)",
+                            "value":"Afternoon rush hour (3 p.m. \u2013 6 p.m.)"
+                         },
+                         {
+                            "text":"Evening (6 p.m. \u2013 9 p.m.)",
+                            "value":"Evening (6 p.m. \u2013 9 p.m.)"
+                         },
+                         {
+                            "text":"Late night (11 p.m. \u2013 3 a.m.)",
+                            "value":"Late night (11 p.m. \u2013 3 a.m.)"
+                         }
+                      ],
+                      "hasOther":true,
+                      "otherText":"Other",
+                      "description":"Select all applicable time frames."
+                   },
+                   {
+                      "name":"Why are you using I-345?",
+                      "type":"checkbox",
+                      "title":"Why are you using I-345?",
+                      "choices":[
+                         {
+                            "text":"Travel to/from work or work-related travel (freight, etc.)",
+                            "value":"Travel to/from work or work-related travel (freight, etc.)"
+                         },
+                         {
+                            "text":"Travel to/from school",
+                            "value":"Travel to/from school"
+                         },
+                         {
+                            "text":"Travel to/from recreational activities",
+                            "value":"Travel to/from recreational activities"
+                         },
+                         {
+                            "text":"Travel to/from entertainment",
+                            "value":"Travel to/from entertainment"
+                         }
+                      ],
+                      "hasOther":true,
+                      "otherText":"Other, please list:",
+                      "description":"Select all that apply."
+                   },
+                   {
+                      "name":"If I-345 is congested, what alternate route(s) do you typically take?",
+                      "type":"checkbox",
+                      "title":"If I-345 is congested, what alternate route(s) do you typically take? ",
+                      "choices":[
+                         {
+                            "text":"I-30",
+                            "value":"I-30"
+                         },
+                         {
+                            "text":"I-35E",
+                            "value":"I-35E"
+                         },
+                         {
+                            "text":"I-635 (LBJ Freeway)",
+                            "value":"I-635 (LBJ Freeway)"
+                         },
+                         {
+                            "text":"Loop 12",
+                            "value":"Loop 12"
+                         },
+                         {
+                            "text":"Woodall Rodgers Freeway (SPUR 366)",
+                            "value":"Woodall Rodgers Freeway (SPUR 366)"
+                         },
+                         {
+                            "text":"Local streets",
+                            "value":"Local streets"
+                         }
+                      ],
+                      "otherText":"Woodall Rodgers Freeway (SPUR 366)",
+                      "description":"Select all that apply."
+                   }
+                ]
+             },
+             {
+                "name":"Rank priorities",
+                "type":"panel",
+                "title":"Please rate the following priorities for the I-345 roadway. [1: Least Important, 5: Very Important]",
+                "elements":[
+                   {
+                      "name":"Improving roadway safety",
+                      "type":"dropdown",
+                      "title":"Improving roadway safety",
+                      "choices":[
+                         {
+                            "text":"1",
+                            "value":"1"
+                         },
+                         {
+                            "text":"2",
+                            "value":"2"
+                         },
+                         {
+                            "text":"3",
+                            "value":"3"
+                         },
+                         {
+                            "text":"4",
+                            "value":"4"
+                         },
+                         {
+                            "text":"5",
+                            "value":"5"
+                         }
+                      ]
+                   },
+                   {
+                      "name":"Getting to my destination as quickly as possible",
+                      "type":"dropdown",
+                      "title":"Getting to my destination as quickly as possible",
+                      "choices":[
+                         {
+                            "text":"1",
+                            "value":"1"
+                         },
+                         {
+                            "text":"2",
+                            "value":"2"
+                         },
+                         {
+                            "text":"3",
+                            "value":"3"
+                         },
+                         {
+                            "text":"4",
+                            "value":"4"
+                         },
+                         {
+                            "text":"5",
+                            "value":"5"
+                         }
+                      ]
+                   },
+                   {
+                      "name":"Economic development",
+                      "type":"dropdown",
+                      "title":"Economic development",
+                      "choices":[
+                         {
+                            "text":"1",
+                            "value":"1"
+                         },
+                         {
+                            "text":"2",
+                            "value":"2"
+                         },
+                         {
+                            "text":"3",
+                            "value":"3"
+                         },
+                         {
+                            "text":"4",
+                            "value":"4"
+                         },
+                         {
+                            "text":"5",
+                            "value":"5"
+                         }
+                      ]
+                   },
+                   {
+                      "name":"Improving local community and neighborhoods",
+                      "type":"dropdown",
+                      "title":"Improving local community and neighborhoods",
+                      "choices":[
+                         {
+                            "text":"1",
+                            "value":"1"
+                         },
+                         {
+                            "text":"2",
+                            "value":"2"
+                         },
+                         {
+                            "text":"3",
+                            "value":"3"
+                         },
+                         {
+                            "text":"4",
+                            "value":"4"
+                         },
+                         {
+                            "text":"5",
+                            "value":"5"
+                         }
+                      ]
+                   },
+                   {
+                      "name":"Improving pedestrian and bicycle access",
+                      "type":"dropdown",
+                      "title":"Improving pedestrian and bicycle access",
+                      "choices":[
+                         {
+                            "text":"1",
+                            "value":"1"
+                         },
+                         {
+                            "text":"2",
+                            "value":"2"
+                         },
+                         {
+                            "text":"3",
+                            "value":"3"
+                         },
+                         {
+                            "text":"4",
+                            "value":"4"
+                         },
+                         {
+                            "text":"5",
+                            "value":"5"
+                         }
+                      ]
+                   },
+                   {
+                      "name":"Providing congestion relief to the overall transportation system",
+                      "type":"dropdown",
+                      "title":"Providing congestion relief to the overall transportation system ",
+                      "choices":[
+                         {
+                            "text":"1",
+                            "value":"1"
+                         },
+                         {
+                            "text":"2",
+                            "value":"2"
+                         },
+                         {
+                            "text":"3",
+                            "value":"3"
+                         },
+                         {
+                            "text":"4",
+                            "value":"4"
+                         },
+                         {
+                            "text":"5",
+                            "value":"5"
+                         }
+                      ]
+                   },
+                   {
+                      "name":"Accommodating future population growth",
+                      "type":"dropdown",
+                      "title":"Accommodating future population growth",
+                      "choices":[
+                         {
+                            "text":"1",
+                            "value":"1"
+                         },
+                         {
+                            "text":"2",
+                            "value":"2"
+                         },
+                         {
+                            "text":"3",
+                            "value":"3"
+                         },
+                         {
+                            "text":"4",
+                            "value":"4"
+                         },
+                         {
+                            "text":"5",
+                            "value":"5"
+                         }
+                      ]
+                   },
+                   {
+                      "name":"Construction cost and schedule",
+                      "type":"dropdown",
+                      "title":"Construction cost and schedule",
+                      "choices":[
+                         {
+                            "text":"1",
+                            "value":"1"
+                         },
+                         {
+                            "text":"2",
+                            "value":"2"
+                         },
+                         {
+                            "text":"3",
+                            "value":"3"
+                         },
+                         {
+                            "text":"4",
+                            "value":"4"
+                         },
+                         {
+                            "text":"5",
+                            "value":"5"
+                         }
+                      ]
+                   }
+                ]
+             },
+             {
+                "name":"Which alternative do you prefer for I-345?",
+                "type":"radiogroup",
+                "title":"Which alternative do you prefer for I-345?",
+                "choices":[
+                   {
+                      "text":"No build/Leave I-345 As-is \u2013 Do nothing to I-345, leave as-is.",
+                      "value":"No Build"
+                   },
+                   {
+                      "text":"Depressed \u2013 Similar to US 75, mainlanes are low with discontinuous frontage roads along either side and cross streets over the top, includes pedestrian and bicycle facilities along the frontage roads and local streets.",
+                      "value":"Depressed "
+                   },
+                   {
+                      "text":"Removal \u2013 Removal of the existing mainlanes and the city street grid is reconnected, includes pedestrian and bicycle facilities.",
+                      "value":"Removal "
+                   },
+                   {
+                      "text":"Elevated \u2013 Similar to existing, but a smaller footprint of an elevated highway with aesthetic improvements and revised access and signage for drivers, and pedestrian and bicycle facilities under the highway. ",
+                      "value":"Elevated"
+                   },
+                   {
+                      "text":"Hybrid \u2013 Similar to US 75 and the depressed alternative, where mainlanes are low with the city street grid reconnected over the top. No proposed frontage roads. Access to the area is from local streets, I-30 or Woodall Rodgers Freeway. Includes pedestrian and bicycle facilities along the local streets.",
+                      "value":"Hybrid"
+                   }
+                ]
+             },
+             {
+                "name":"Why do you prefer that alternative",
+                "type":"checkbox",
+                "title":"Why do you prefer that alternative. Select all that apply.",
+                "choices":[
+                   {
+                      "text":"It will increase the safety of my commute",
+                      "value":"It will increase the safety of my commute"
+                   },
+                   {
+                      "text":"It will make my commute faster",
+                      "value":"It will make my commute faster"
+                   },
+                   {
+                      "text":"It will enhance the local community and neighborhoods",
+                      "value":"It will enhance the local community and neighborhoods"
+                   },
+                   {
+                      "text":"It will enhance the regional transportation network",
+                      "value":"It will enhance the regional transportation network"
+                   },
+                   {
+                      "text":"It will enhance economic development",
+                      "value":"It will enhance economic development"
+                   },
+                   {
+                      "text":"Overall project cost",
+                      "value":"Overall project cost"
+                   }
+                ],
+                "hasOther":true,
+                "otherText":"Other reason"
+             },
+             {
+                "name":"Thank you for your input so far",
+                "type":"panel",
+                "title":"Thank you for your input so far! Please answer a few optional questions. This helps us understand your input better. Your contact information will be kept private.",
+                "elements":[
+                   {
+                      "name":"I was able to provide meaningful input about I-345 Feasibility Study today.",
+                      "type":"radiogroup",
+                      "title":"I was able to provide meaningful input about I-345 Feasibility Study today.",
+                      "choices":[
+                         {
+                            "text":"Strongly Agree",
+                            "value":"Strongly Agree"
+                         },
+                         {
+                            "text":"Agree",
+                            "value":"Agree"
+                         },
+                         {
+                            "text":"Somewhat ",
+                            "value":"Somewhat "
+                         },
+                         {
+                            "text":"Disagree",
+                            "value":"Disagree"
+                         },
+                         {
+                            "text":"Strongly Disagree",
+                            "value":"Strongly Disagree"
+                         }
+                      ]
+                   },
+                   {
+                      "name":"Did you attend the first series of public meetings in December 2019?",
+                      "type":"radiogroup",
+                      "title":"Did you attend the first series of public meetings in December 2019?",
+                      "choices":[
+                         {
+                            "text":"Yes",
+                            "value":"Yes"
+                         },
+                         {
+                            "text":"No",
+                            "value":"No"
+                         }
+                      ]
+                   },
+                   {
+                      "name":"I believe that the I-345 Feasibility Study process is being structured in a transparent and accessible manner.",
+                      "type":"radiogroup",
+                      "title":"I believe that the I-345 Feasibility Study process is being structured in a transparent and accessible manner.",
+                      "choices":[
+                         {
+                            "text":"Strongly Agree",
+                            "value":"Strongly Agree"
+                         },
+                         {
+                            "text":"Agree",
+                            "value":"Agree"
+                         },
+                         {
+                            "text":"Somewhat ",
+                            "value":"Somewhat "
+                         },
+                         {
+                            "text":"Disagree",
+                            "value":"Disagree"
+                         },
+                         {
+                            "text":"Strongly Disagree",
+                            "value":"Strongly Disagree"
+                         }
+                      ],
+                      "hasOther":true,
+                      "otherText":"Additional comments"
+                   },
+                   {
+                      "name":"Technical issues were a problem and inhibited my participation in this survey or in the virtual public meeting.",
+                      "type":"radiogroup",
+                      "title":"Technical issues were a problem and inhibited my participation in this survey or in the virtual public meeting.",
+                      "choices":[
+                         {
+                            "text":"Yes",
+                            "value":"Yes"
+                         },
+                         {
+                            "text":"No",
+                            "value":"No"
+                         }
+                      ]
+                   },
+                   {
+                      "name":"How did you hear about this survey?",
+                      "type":"radiogroup",
+                      "title":"How did you hear about this survey? ",
+                      "choices":[
+                         {
+                            "text":"Public Meeting",
+                            "value":"PublicMeeting"
+                         },
+                         {
+                            "text":"Mail",
+                            "value":"Mail"
+                         },
+                         {
+                            "text":"E-mail",
+                            "value":"E-mail"
+                         },
+                         {
+                            "text":"Website",
+                            "value":"Website"
+                         },
+                         {
+                            "text":"TxDOT",
+                            "value":"TxDOT"
+                         },
+                         {
+                            "text":"Social Media",
+                            "value":"Social Media"
+                         },
+                         {
+                            "text":"Other Social Media Posting",
+                            "value":"Other Social Media Posting"
+                         },
+                         {
+                            "text":"Newspaper/TV Story",
+                            "value":"Newspaper/TV Story"
+                         }
+                      ],
+                      "hasOther":true,
+                      "otherText":"Other",
+                      "description":"Select all that apply. "
+                   },
+                   {
+                      "name":"Do you have any suggestions that can improve our outreach for public participation or that can improve the public meeting itself?",
+                      "type":"radiogroup",
+                      "title":"Do you have any suggestions that can improve our outreach for public participation or that can improve the public meeting itself?",
+                      "choices":[
+                         {
+                            "text":"Yes",
+                            "value":"Yes"
+                         },
+                         {
+                            "text":"No",
+                            "value":"No"
+                         }
+                      ]
+                   },
+                   {
+                      "name":"CommentOnOutreatSuggestions",
+                      "type":"comment",
+                      "title":"Comment here:",
+                      "visibleIf":"({Do you have any suggestions that can improve our outreach for public participation or that can improve the public meeting itself?} == 'Yes')"
+                   },
+                   {
+                      "name":"Newsletter",
+                      "type":"radiogroup",
+                      "title":"Would you like to receive the study newsletter?",
+                      "choices":[
+                         {
+                            "text":"Yes",
+                            "value":"Yes"
+                         },
+                         {
+                            "text":"No",
+                            "value":"No"
+                         },
+                         {
+                            "text":"I am already on the mailing list",
+                            "value":"NA"
+                         }
+                      ]
+                   },
+                   {
+                      "name":"email",
+                      "type":"text",
+                      "title":"Email address: ",
+                      "visibleIf":"({Newsletter} == 'Yes')",
+                      "requiredErrorText":"Please enter a valid email"
+                   }
+                ]
+             },
+             {
+                "name":"panel2",
+                "type":"panel",
+                "elements":[
+                   {
+                      "html":"<H4>If you have any additional questions or comments, please contact:</H4> \n<P>\n<h4>Mr. Travis Campbell, P. E.</h4>\n<BR>CSJ: 0092-14-094\n<BR>Texas Department of Transportation \u2013 Dallas District\n<BR>4777 E. Highway 80\n<BR>Mesquite, Texas 75150\n<BR>345study@txdot.gov\n",
+                      "name":"question7",
+                      "type":"html"
+                   }
+                ]
+             }
+          ]
+       }
+    ]
+ }

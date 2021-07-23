@@ -107,3 +107,7 @@ for response in survey_responses:
 with open('txdot_responses.csv', mode='w', newline="", encoding='utf-8') as sce_file:
     sce_writer = csv.writer(sce_file, delimiter=';')
     sce_writer.writerows(to_csv)
+
+# with open('txdot_type.csv', mode='w', newline="", encoding='utf-8') as sce_type_file:
+#     sce_type_writer = csv.writer(sce_type_file, delimiter=',')
+#     sce_type_writer.writerows(type_csv)
