@@ -30,8 +30,6 @@ def create_questions_dict(survey_questions):
     count = 0
     num = 0
     for question in survey_questions:
-        print(num, question)
-        print('-------------------------------------------------------------------')
         num += 1
         is_panel_type = question.get('type', False)
         if is_panel_type == 'panel':            
