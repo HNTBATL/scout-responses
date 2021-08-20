@@ -5,12 +5,18 @@ import requests
 f_name = "./streetcar_survey_responses.csv"
 
 #find a way to automate retrieval
-jwt = "JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo1LCJ1c2VybmFtZSI6ImJyYmF0dEBobnRiLmNvbSIsImV4cCI6MTYyODM0OTAzNCwiZW1haWwiOiJicmJhdHRAaG50Yi5jb20ifQ.W1G_zF6vy5kREVdjLQjRKL8y9yId2Ntd6f36VqQ_D2I"
+jwt = "JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo0LCJ1c2VybmFtZSI6ImJyYmF0dEBobnRiLmNvbSIsImV4cCI6MTYzNDc2MzE3OSwiZW1haWwiOiJicmJhdHRAaG50Yi5jb20ifQ.D8JoxLmFga3ux3ZQp2jEbV485piBHj7RiaTD8Ztvl3M"
 
 survey_id = 2
 survey_json = requests.post(f"https://scout-lai10-api.scoutfeedback.com/api/surveyJSON/{survey_id}", headers={"authorization": jwt})
 survey_responses_json = requests.post("https://scout-lai10-api.scoutfeedback.com/api/responseJSON", headers={"authorization": jwt})
 stakeholders_json = requests.post("https://scout-lai10-api.scoutfeedback.com/api/stakeholders", headers={"authorization": jwt})
+
+try:
+    survey_json = requests.post(f"https://scout-lai10-api.scoutfeedback.com/api/surveyJSON/{survey_id}", headers={"authorization": jwt})
+    survey_json.raise_for_status()
+except requests.exceptions.HTTPError as err:
+    print('RESPONSE ERROR: ', err)
 
 survey = json.loads(survey_json.text)
 survey_responses = json.loads(survey_responses_json.text)

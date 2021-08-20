@@ -2,7 +2,7 @@ import csv
 import json
 import requests
 
-# no panel questions in this survey
+# f_name = "./campbellton_survey_responses.csv"
 
 #find a way to automate retrieval
 jwt = "JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo0LCJ1c2VybmFtZSI6ImJyYmF0dEBobnRiLmNvbSIsImV4cCI6MTYzNDc2MzE3OSwiZW1haWwiOiJicmJhdHRAaG50Yi5jb20ifQ.D8JoxLmFga3ux3ZQp2jEbV485piBHj7RiaTD8Ztvl3M"
@@ -13,47 +13,52 @@ survey_json = requests.post(f"https://staging-api.scoutfeedback.com/api/surveyJS
 survey_responses_json = requests.post("https://staging-api.scoutfeedback.com/api/responseJSON", headers={"authorization": jwt})
 stakeholders_json = requests.post("https://staging-api.scoutfeedback.com/api/stakeholders", headers={"authorization": jwt})
 
+# print('survey_json: ', survey_json)
+# print('survey_responses_json: ', survey_responses_json)
+# print('stakeholders_json: ', stakeholders_json)
+
 survey = json.loads(survey_json.text)
 survey_responses = json.loads(survey_responses_json.text)
+# print('FIRST SURVEY: ', survey_responses[0])
 stakeholders = json.loads(stakeholders_json.text)
+# print(survey)
 survey_questions = [question for question in survey['survey_json']['pages'][0]['elements']]
 count = 1
 survey_responses = [r for r in survey_responses if r['survey'] == survey_id]
 
-print('Number of responses: ', len(survey_responses))
+# print(len(survey_responses))
+# print(survey_responses[0])
+# print(stakeholders[0])
 
-def create_questions_dict(survey_questions):
-    questions = {}
-    for question in survey_questions:
-        questions[question['name']] = question.get('name', 'title')
-    return questions
-
-
+# if no panel questions, use this
 # def create_questions_dict(survey_questions):
 #     questions = {}
-#     count = 0
-#     num = 0
 #     for question in survey_questions:
-#         # print('QUESTION ', count, ': ', question)
-#         # count +=1
-#         num += 1
-#         is_panel_type = question.get('type', False)
-#         if is_panel_type == 'panel': 
-#             print('this is a panel question #######################################')           
-#             for q in question["elements"]:
-#                 print(num, ': ', q, question[q], question[q['name']])
-#                 questions[q['name']] = q.get('name', 'name')
-#         else:
-#             # print('regular question $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$')
-#             # print(num, ": ", question, question['name'])
-#             questions[question['name']] = question.get('name', 'name')
+#         questions[question['name']] = question.get('title', 'NOTITLE')
 #     return questions
 
+# if panel questions, use this
+def create_questions_dict(survey_questions):
+    questions = {}
+    count = 0
+    num = 0
+    for question in survey_questions:
+        # print('QUESTION ', count, ': ', question)
+        # count +=1
+        num += 1
+        is_panel_type = question.get('type', False)
+        if is_panel_type == 'panel': 
+            print('this is a panel question #######################################')           
+            for q in question["elements"]:
+                print(num, ': ', q, question[q], question[q['name']])
+                questions[q['name']] = q.get('name', 'name')
+        else:
+            # print('regular question $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$')
+            # print(num, ": ", question, question['name'])
+            questions[question['name']] = question.get('name', 'name')
+    return questions
+
 header_title_dict = create_questions_dict(survey_questions)
-header_count = 1
-for header in header_title_dict:
-    print('header_title_dict ', header_count, ': ', header)
-    header_count += 1
 headers = [q for q in create_questions_dict(survey_questions).keys()]
 
 headers = []
