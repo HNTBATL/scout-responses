@@ -1,11 +1,11 @@
 import csv
 import json
 import requests
+from jwt_tokens import jwt
+
+print(jwt)
 
 f_name = "./streetcar_survey_responses.csv"
-
-#find a way to automate retrieval
-jwt = "JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo0LCJ1c2VybmFtZSI6ImJyYmF0dEBobnRiLmNvbSIsImV4cCI6MTYzNDc2MzE3OSwiZW1haWwiOiJicmJhdHRAaG50Yi5jb20ifQ.D8JoxLmFga3ux3ZQp2jEbV485piBHj7RiaTD8Ztvl3M"
 
 survey_id = 2
 survey_json = requests.post(f"https://scout-lai10-api.scoutfeedback.com/api/surveyJSON/{survey_id}", headers={"authorization": jwt})

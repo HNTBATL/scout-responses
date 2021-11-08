@@ -1,11 +1,13 @@
 import csv
 import json
 import requests
+from jwt_tokens import jwt
+
+print(jwt)
 
 f_name = "./streetcar_survey_responses.csv"
 
 #find a way to automate retrieval
-jwt = "JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo1LCJ1c2VybmFtZSI6ImJyYmF0dEBobnRiLmNvbSIsImV4cCI6MTYyODM0OTAzNCwiZW1haWwiOiJicmJhdHRAaG50Yi5jb20ifQ.W1G_zF6vy5kREVdjLQjRKL8y9yId2Ntd6f36VqQ_D2I"
 api_url = "https://txdot-api.scoutfeedback.com/api"
 
 survey_id = 1

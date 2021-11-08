@@ -1,11 +1,11 @@
 import csv
 import json
 import requests
+from jwt_tokens import jwt
+
+print(jwt)
 
 f_name = "./streetcar_survey_responses.csv"
-
-#find a way to automate retrieval
-jwt = "JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo1LCJ1c2VybmFtZSI6ImJyYmF0dEBobnRiLmNvbSIsImV4cCI6MTYyODM0OTAzNCwiZW1haWwiOiJicmJhdHRAaG50Yi5jb20ifQ.W1G_zF6vy5kREVdjLQjRKL8y9yId2Ntd6f36VqQ_D2I"
 
 survey_id = 12
 survey_json = requests.post(f"https://staging-api.scoutfeedback.com/api/surveyJSON/{survey_id}", headers={"authorization": jwt})
@@ -103,10 +103,10 @@ with open('txdot_responses.csv', mode='w', newline="", encoding='utf-8') as sce_
     sce_writer = csv.writer(sce_file, delimiter=';')
     sce_writer.writerows(to_csv)
 
-# with open('txdo_trip_from.csv', mode='w', newline="", encoding='utf-8') as sce_safety_file:
-#     sce_safety_writer = csv.writer(sce_safety_file, delimiter=',')
-#     sce_safety_writer.writerows(trip_from_csv)
+with open('txdo_trip_from.csv', mode='w', newline="", encoding='utf-8') as sce_safety_file:
+    sce_safety_writer = csv.writer(sce_safety_file, delimiter=',')
+    sce_safety_writer.writerows(trip_from_csv)
 
-# with open('txdot_trip_to.csv', mode='w', newline="", encoding='utf-8') as sce_safety_file:
-#     sce_safety_writer = csv.writer(sce_safety_file, delimiter=',')
-#     sce_safety_writer.writerows(trip_to_csv)
+with open('txdot_trip_to.csv', mode='w', newline="", encoding='utf-8') as sce_safety_file:
+    sce_safety_writer = csv.writer(sce_safety_file, delimiter=',')
+    sce_safety_writer.writerows(trip_to_csv)
